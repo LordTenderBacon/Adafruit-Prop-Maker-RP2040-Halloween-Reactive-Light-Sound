@@ -10,7 +10,7 @@ This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker,
    git clone https://github.com/YourUsername/YourRepoName.git
 
 2. Open the Project Files in Arduino & select the RP2040 Propmaker Feather board:
-Note that you will need to follow instructions to set up arduino to use your rp2040 if you have not alreayd done so. [Here](https://learn.adafruit.com/adafruit-rp2040-prop-maker-feather/arduino-ide-setup)
+Note that you will need to follow instructions to set up arduino to use your rp2040 if you have not already done so. [Here](https://learn.adafruit.com/adafruit-rp2040-prop-maker-feather/arduino-ide-setup)
    - Open `main.ino` in the Arduino IDE or your preferred editor. This is the main control file for the project.
    - `audio.h` handles the audio playback functionality.
 
