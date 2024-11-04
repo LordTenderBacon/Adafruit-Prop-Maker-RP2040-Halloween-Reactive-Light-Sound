@@ -13,6 +13,8 @@ This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker,
    - Open `main.ino` in the Arduino IDE or your preferred editor. This is the main control file for the project.
    - `audio.h` handles the audio playback functionality.
 
+![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/842d7c6e3f693a8c098c2a4269f08d43491ea645/Images/adafruit_products_Adafruit_RP2040_Prop-Maker_Feather_PrettyPins.png)
+
 3. Hardware Setup:
    - Flight Distance Sensor:
      - Signal (GPIO): Connect A3 on the RP2040 Prop-Maker to the sensor’s GPIO.
