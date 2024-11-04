@@ -2,6 +2,8 @@
 
 This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker, a NeoPixel ring, and a Flight Distance Sensor. The project can also be used with a PIR sensor by making minor adjustments. There are reffernce images at the very bottom to show how I set mine up. Feel free to email me if you need help with anything or want to know how to adjust the code for a PIR sensor. 
 
+To add your own sounds to the audio.h file you'll need a wav file converted to raw and then to convert the raw to c binary array I will add a file called sampleaudio copy and past that into one of the sound on the audio.h if you want to use it.
+
 Email: jordanthecoder719@gmail.com
 
 ## Getting Started
