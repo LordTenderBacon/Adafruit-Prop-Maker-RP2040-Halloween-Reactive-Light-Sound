@@ -1,6 +1,6 @@
 # Adafruit Propmaker 2040 Reactive sound Neopixel Ring
 
-This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker, a NeoPixel ring, and a Flight Distance Sensor. The project can also be used with a PIR sensor by making minor adjustments.
+This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker, a NeoPixel ring, and a Flight Distance Sensor. The project can also be used with a PIR sensor by making minor adjustments. There are reffernce images at the very bottom to show how I set mine up.
 
 ## Getting Started
 
@@ -12,12 +12,6 @@ This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker,
 2. Open the Project Files in Arduino & select the RP2040 Propmaker Feather:
    - Open `main.ino` in the Arduino IDE or your preferred editor. This is the main control file for the project.
    - `audio.h` handles the audio playback functionality.
-
-![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/842d7c6e3f693a8c098c2a4269f08d43491ea645/Images/adafruit_products_Adafruit_RP2040_Prop-Maker_Feather_PrettyPins.png)
-
-# Fritzing Diagram For Refference
-
-![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/88aaac8bb561947d840b6064d47570c3e6d90e98/Images/propmaker2040_bb.png)
 
 3. Hardware Setup:
    - Flight Distance Sensor:
@@ -40,3 +34,11 @@ This project uses an Adafruit RP2040 Prop-Maker Feather with a 3" 4-ohm speaker,
 5. Using the Project:
    - Functionality: When powered on, the RP2040 controls playback using the `audio.h` file and interacts with the distance sensor to trigger actions based on proximity.
    - Customization: The distance sensor logic can be modified to work with a PIR sensor by updating relevant sensor input lines in `main.ino`.
+  
+
+# Fritzing Diagram For Refference
+
+![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/88aaac8bb561947d840b6064d47570c3e6d90e98/Images/propmaker2040_bb.png)
+
+# RP2040 Pinout For Refference
+![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/842d7c6e3f693a8c098c2a4269f08d43491ea645/Images/adafruit_products_Adafruit_RP2040_Prop-Maker_Feather_PrettyPins.png)
