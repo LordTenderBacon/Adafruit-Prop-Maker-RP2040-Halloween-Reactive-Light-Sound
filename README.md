@@ -39,6 +39,92 @@ Note that you will need to follow instructions to set up arduino to use your rp2
    - Customization: The distance sensor logic can be modified to work with a PIR sensor by updating relevant sensor input lines in `main.ino`.
   
 
+# NeoPixel Sound-Reactive Lighting Project Explained
+
+This project uses an **Adafruit NeoPixel** strip, **ToF (Time of Flight) distance sensor**, **Adafruit LIS3DH accelerometer**, and an **audio playback system** to create a visually reactive lighting effect based on sound.
+
+## Features
+-Plays Green light for sound 1-3 and then RGB for 4th sound
+- **Green Light Reaction**: The NeoPixels pulse with a green light in response to the sound's amplitude for certain audio clips.
+- **RGB Color Reaction**: For selected audio clips, the NeoPixels cycle through red, green, and blue colors, matching the loudness of the sound.
+- **Distance Detection**: The **VL6180X ToF sensor** detects when an object is within a threshold distance to trigger the sound and lighting effects.
+
+## Project Setup
+
+1. **Connect NeoPixels**:
+   - Attach the NeoPixel strip to the designated GPIO pin for data and connect it to 5V power.
+   
+2. **Distance Sensor**:
+   - Connect the **Adafruit VL6180X** ToF sensor to the I2C pins and **GPIO 29** for the interrupt pin.
+   
+3. **Audio Playback and I2S Setup**:
+   - Set up the audio playback using the I2S library. Audio samples are stored in the `audio.h` file, which includes five different sound clips.
+
+## Code Structure
+
+### Main Components
+- **Distance Threshold Trigger**: When an object is detected within a set threshold, the sound playback and NeoPixel reaction begin.
+- **Audio-Triggered NeoPixel Reactions**:
+  - **Green Light Reaction** (`play_audio_i2s_with_green`): NeoPixels pulse in green based on the audio's loudness.
+  - **RGB Color Reaction** (`play_audio_i2s_with_rgb`): NeoPixels display a dynamic RGB color change corresponding to the sound's amplitude.
+
+### Code Explanation
+
+1. **Distance Detection**:
+   - The ToF sensor measures distance, and when the threshold is met, it triggers sound playback and NeoPixel lighting.
+   
+2. **Sound Amplitude Calculation**:
+   - The code calculates the audio's amplitude by summing the absolute values of audio samples over small intervals.
+   - Every few samples, it calculates an average amplitude, used to set the NeoPixel brightness.
+   
+3. **NeoPixel Reactions**:
+   - **Green Light**: For audio clips 1-3 and 5, the NeoPixels pulse in green, with brightness matching the loudness of the audio.
+   - **RGB Reaction**: For audio clip 4, the NeoPixels switch colors based on brightness:
+     - Low amplitude = red
+     - Medium amplitude = green
+     - High amplitude = blue
+
+## Code
+
+Here is the main part of the code that controls the NeoPixel reactions:
+
+```cpp
+void play_audio_i2s_with_green(const uint8_t *audioData, uint32_t numSamples) {
+    i2s.flush();
+
+    uint32_t sampleCounter = 0;
+    uint32_t amplitudeAccumulator = 0;
+    const uint32_t samplesPerUpdate = 100;
+    const uint32_t neoPixelUpdateFrequency = 700;
+
+    int16_t prevSample = 0;
+
+    for (uint32_t i = 0; i < numSamples; i++) {
+        int16_t sample = ((int16_t)audioData[i] - 128) << 8;
+        sample = (sample + prevSample) / 2;
+        prevSample = sample;
+
+        sample *= volumeScaling;
+        amplitudeAccumulator += abs(sample);
+        sampleCounter++;
+
+        i2s.write(sample);
+        i2s.write(sample);
+
+        if (i % neoPixelUpdateFrequency == 0 && sampleCounter >= samplesPerUpdate) {
+            currentAmplitude = amplitudeAccumulator / sampleCounter;
+            sampleCounter = 0;
+            amplitudeAccumulator = 0;
+
+            uint8_t brightness = map(currentAmplitude, 0, 32767, 0, 255);
+            for (int32_t j = 0; j < strip.numPixels(); j++) {
+                strip.setPixelColor(j, strip.Color(0, brightness, 0));
+            }
+            strip.show();
+        }
+    }
+}
+```
 # Fritzing Diagram For Refference
 
 ![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/31043f74ed5e22497179848c656d51a6ff016e36/Images/refference.png)
@@ -49,4 +135,3 @@ Note that you will need to follow instructions to set up arduino to use your rp2
 # Youtube Video Of working Project
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/MXi40_avDd0/0.jpg)](https://www.youtube.com/watch?v=MXi40_avDd0)
-
