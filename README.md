@@ -39,7 +39,7 @@ Note that you will need to follow instructions to set up arduino to use your rp2
 
 # Fritzing Diagram For Refference
 
-![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/88aaac8bb561947d840b6064d47570c3e6d90e98/Images/propmaker2040_bb.png)
+![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/2628fc9aca5ca3488bdc4f22981244a52bfd601b/Images/ref12.png)
 
 # RP2040 Pinout For Refference
 ![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/842d7c6e3f693a8c098c2a4269f08d43491ea645/Images/adafruit_products_Adafruit_RP2040_Prop-Maker_Feather_PrettyPins.png)
