@@ -43,3 +43,8 @@ Note that you will need to follow instructions to set up arduino to use your rp2
 
 # RP2040 Pinout For Refference
 ![Adafruit RP2040 Prop-Maker Feather Pinout](https://github.com/LordTenderBacon/Adafruit-Prop-Maker-RP2040-Halloween-Reactive-Light-Sound/blob/842d7c6e3f693a8c098c2a4269f08d43491ea645/Images/adafruit_products_Adafruit_RP2040_Prop-Maker_Feather_PrettyPins.png)
+
+# Youtube Video Of working Project
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/MXi40_avDd0/0.jpg)](https://www.youtube.com/watch?v=MXi40_avDd0)
+
