@@ -23,7 +23,7 @@ Note that you will need to follow instructions to set up arduino to use your rp2
    - Speaker: 
      - Plug the 3" 4-ohm speaker into the onboard solderless terminal on the Prop-Maker, using the designated speaker terminals.
    
-   - NeoPixel Ring:
+   - NeoPixel Ring: (Use the Solderless onboard terminal it should be green and have screws)
      - Data (GPIO 21): Connect the NeoPixel’s data line to GPIO 21 on the Prop-Maker.
      - Power: Connect 5V on the NeoPixel ring to 5V on the Prop-Maker.
      - Ground: Connect GND on the NeoPixel ring to GND on the Prop-Maker.
