@@ -24,7 +24,7 @@ bool startPlayback = false;
 int currentClip = 1;  // Start with the first clip
 
 // Audio sample rate and volume scaling
-const uint32_t LAUGH_SAMPLE_RATE = 22050;
+const uint32_t AUDIO_SAMPLE_RATE = 44100;  // Updated to 44100 Hz
 const float volumeScaling = 1.0;
 
 void setup() {
@@ -109,9 +109,7 @@ void setup1() {
     i2s.setDATA(PIN_I2S_DATA);
     i2s.setBitsPerSample(16);
 
-    uint32_t sampleRate = LAUGH_SAMPLE_RATE;
-
-    if (!i2s.begin(sampleRate)) {
+    if (!i2s.begin(AUDIO_SAMPLE_RATE)) {
         Serial.println("Failed to initialize I2S!");
         i2s.end();
         return;
